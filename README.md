@@ -1,6 +1,6 @@
-# Archive Postmark Messages Test
+# Archive Postmark Messages
 
-⚠️ For Testing and Demo!
+⚠️ In Testing and Demo!
 
 # Objective
 
@@ -25,33 +25,59 @@ So we would like to have a copy of our own for data recording purpose and have i
 
 Postmark has [Messages API](http://developer.postmarkapp.com/developer-api-messages.html) that let us get all the details about any outbound or inbound message that we've sent or received through a specific server.
 
-# Console
+# Query Method
 
 * Go to rails console
-* Get Messages
-```
-messages =
-`curl "https://api.postmarkapp.com/messages/outbound?recipient={recipient_email}&count=500&offset=0&todate={todate}&fromdate={fromdate}" -X GET -H "Accept: application/json" -H "X-Postmark-Server-Token: ENV["POSTMARK_API_KEY"]"`
-```
+  => @from_date = Date.today.beginning_of_month.strftime("%Y-%m-%d")
+  => @to_date = Date.today.end_of_month.strftime("%Y-%m-%d")
+
+* Get Outbound messages search
+  * Required headers
+    * Accept
+    * X-Postmark-Server-Token
+  * Required parameters
+    * count
+    * offset
+
+  ```
+  messages =
+  `curl "https://api.postmarkapp.com/messages/outbound?count=500&offset=0&todate=#{@to_date}&fromdate=#{@from_date}" -X GET -H "Accept: application/json" -H "X-Postmark-Server-Token: #{ENV["POSTMARK_API_KEY"]}"`
+  ```
+
 * Parse json data
-```
- datas = JSON.parse(messages)
-```
+
+  ```
+  data = JSON.parse(messages)
+  ```
 * We have `data` string values which we will map the
-  * Tag
-  * MessageID
-  * To [Email, Name]
-  * Cc [Email, Name]
-  * Bccs [Email, Name]
-  * Recipients
-  * ReceivedAt
-  * From
-  * Subject
-  * Attachments
-  * Status
-  * TrackOpens
-  * TrackLinks
+  * TotalCount
+  * Messages
+    * Tag
+    * MessageID
+    * To [Email, Name]
+    * Cc [Email, Name]
+    * Bcc [Email, Name]
+    * Recipients
+    * ReceivedAt
+    * From
+    * Subject
+    * Attachments
+    * Status
+    * TrackOpens
+    * TrackLinks
 
 * Save it to CSV ...
+  * TotalCount
+    ```
+      puts data["TotalCount"]
+    ```
+  * Messages
+    ```
+      count = 0
+      data["Messages"].each do |d|
+        count += 1
+        puts "#{count}) #{d["Tag"]} #{d["MessageID"]} #{d["To"]} #{d["Cc"]} #{d["Bcc"]} #{d["Recipients"]} #{d["ReceivedAt"]} #{d["ReceivedAt"]} #{d["From"]} #{d["Subject"]} #{d["Attachments"]} #{d["Status"]} #{d["TrackOpens"] #{d["TrackLinks"]} #{d["TrackLinks"]}\n\n"
+      end
+    ```
 
 On going! ...
