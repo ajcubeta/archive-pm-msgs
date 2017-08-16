@@ -28,8 +28,10 @@ Postmark has [Messages API](http://developer.postmarkapp.com/developer-api-messa
 # Query Method
 
 * Go to rails console
+```
   => @from_date = Date.today.beginning_of_month.strftime("%Y-%m-%d")
   => @to_date = Date.today.end_of_month.strftime("%Y-%m-%d")
+```
 
 * Get Outbound messages search
   * Required headers
@@ -40,12 +42,10 @@ Postmark has [Messages API](http://developer.postmarkapp.com/developer-api-messa
     * offset
 
   ```
-  messages =
-  `curl "https://api.postmarkapp.com/messages/outbound?count=500&offset=0&todate=#{@to_date}&fromdate=#{@from_date}" -X GET -H "Accept: application/json" -H "X-Postmark-Server-Token: #{ENV["POSTMARK_API_KEY"]}"`
+  messages = `curl "https://api.postmarkapp.com/messages/outbound?count=500&offset=0&todate=#{@to_date}&fromdate=#{@from_date}" -X GET -H "Accept: application/json" -H "X-Postmark-Server-Token: #{ENV["POSTMARK_API_KEY"]}"`
   ```
 
 * Parse json data
-
   ```
   data = JSON.parse(messages)
   ```
@@ -69,14 +69,14 @@ Postmark has [Messages API](http://developer.postmarkapp.com/developer-api-messa
 * Save it to CSV ...
   * TotalCount
     ```
-      puts data["TotalCount"]
+    puts data["TotalCount"]
     ```
   * Messages
     ```
-      count = 0
-      data["Messages"].each do |d|
-        count += 1
-        puts "#{count}) #{d["Tag"]} #{d["MessageID"]} #{d["To"]} #{d["Cc"]} #{d["Bcc"]} #{d["Recipients"]} #{d["ReceivedAt"]} #{d["ReceivedAt"]} #{d["From"]} #{d["Subject"]} #{d["Attachments"]} #{d["Status"]} #{d["TrackOpens"]} #{d["TrackLinks"]}"
+    count = 0
+    data["Messages"].each do |d|
+      count += 1
+      puts "#{count}) #{d["Tag"]} #{d["MessageID"]} #{d["To"]} #{d["Cc"]} #{d["Bcc"]} #{d["Recipients"]} #{d["ReceivedAt"]} #{d["ReceivedAt"]} #{d["From"]} #{d["Subject"]} #{d["Attachments"]} #{d["Status"]} #{d["TrackOpens"]} #{d["TrackLinks"]}"
       end
     ```
 
