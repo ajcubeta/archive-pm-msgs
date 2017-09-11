@@ -90,7 +90,6 @@ Postmark has [Messages API](http://developer.postmarkapp.com/developer-api-messa
 On going! ...
 
 
-
 ## Testing the inbound webhook with curl (Sample)
   ```
   curl <your-url> \

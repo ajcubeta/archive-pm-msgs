@@ -8,6 +8,7 @@ end
 gem 'rails', '~> 5.1.3'
 gem 'puma', '~> 3.7'
 gem 'pg', '~> 0.18'
+gem 'turbolinks', '~> 5.0.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'rack-cors'
@@ -45,3 +46,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
+
+gem 'rails_12factor', group: :production
+
+ruby "2.4.1"
