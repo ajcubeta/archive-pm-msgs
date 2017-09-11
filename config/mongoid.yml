@@ -1,28 +1,28 @@
-development:
-  clients:
-    default:
-      database: archive_pm_msgs_development
-      hosts:
-        - localhost:27017
-      options:
-  options:
-
-
-test:
-  clients:
-    default:
-      database: archive_pm_msgs_test
-      hosts:
-        - localhost:27017
-      options:
-        read:
-          mode: :primary
-        max_pool_size: 1
-
-# set these environment variables on your prod server
-production:
-  host: 10.0.1.112
-  port: 28016
-  database: archive_pm_msgs_production
-  use_activesupport_time_zone: true
-  logger: false
+# development:
+#   clients:
+#     default:
+#       database: archive_pm_msgs_development
+#       hosts:
+#         - localhost:27017
+#       options:
+#   options:
+#
+#
+# test:
+#   clients:
+#     default:
+#       database: archive_pm_msgs_test
+#       hosts:
+#         - localhost:27017
+#       options:
+#         read:
+#           mode: :primary
+#         max_pool_size: 1
+#
+# # set these environment variables on your prod server
+# production:
+#   host: 10.0.1.112
+#   port: 28016
+#   database: archive_pm_msgs_production
+#   use_activesupport_time_zone: true
+#   logger: false
