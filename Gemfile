@@ -46,6 +46,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'minitest-rails'
+  gem 'minitest-reporters'
+  gem 'byebug'
 end
 
 gem 'rails_12factor', group: :production
