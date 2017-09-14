@@ -18,7 +18,7 @@ module ArchivePmMsgs
 
     # Postmark email service
     config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { api_key: 'ca102b6c-2bcb-42a2-baf0-1cf82a71dd26' }
+    config.action_mailer.postmark_settings = { api_key: ENV["POSTMARK_API_KEY"] }
 
     # Minitest::Spec
     config.generators do |g|
