@@ -16,6 +16,10 @@ module ArchivePmMsgs
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # Postmark email service
+    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.postmark_settings = { api_key: 'ca102b6c-2bcb-42a2-baf0-1cf82a71dd26' }
+
     # Minitest::Spec
     config.generators do |g|
       g.test_framework :minitest, spec: true, fixture: false

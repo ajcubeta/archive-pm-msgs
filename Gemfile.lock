@@ -83,6 +83,8 @@ GEM
     griddler (1.4.0)
       htmlentities
       rails (>= 3.2.0)
+    griddler-postmark (1.0.0)
+      griddler
     hodel_3000_compliant_logger (0.1.1)
     htmlentities (4.3.4)
     i18n (0.8.6)
@@ -262,6 +264,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   griddler
+  griddler-postmark
   icalendar
   jwt
   kaminari

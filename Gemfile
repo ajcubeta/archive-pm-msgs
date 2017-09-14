@@ -15,14 +15,16 @@ gem 'rack-cors'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'icalendar'
 gem 'kaminari'
-gem 'postmark-rails'
 gem 'validator-nric'
 gem 'whenever'
 gem 'oink'
 # gem 'mongoid'
 gem 'bson_ext'
 gem 'uglifier'
+
 gem 'griddler'
+gem 'griddler-postmark'
+gem 'postmark-rails'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

@@ -9,6 +9,11 @@ Rails.application.routes.draw do
 
   mount_griddler
 
+  # get 'exit', to: 'sessions#destroy', as: :logout
+  # get ':username', to: 'users#show', as: :user
+
+  match 'webhoook', to: 'posts#webhoook', via: [:get, :post]
+
   resources :users
   resources :sessions
   resources :posts
