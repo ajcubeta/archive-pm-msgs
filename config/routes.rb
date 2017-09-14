@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   # match 'webhoook' => 'posts#webhoook', :as => 'webhoook'
 
+  mount_griddler
+
   resources :users
   resources :sessions
   resources :posts
