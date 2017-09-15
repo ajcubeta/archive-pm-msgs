@@ -41,7 +41,6 @@ Postmark has [Messages API](http://developer.postmarkapp.com/developer-api-messa
     * count
     * offset
 
-
   <!-- Outbound -->
   ```
   messages = `curl "https://api.postmarkapp.com/messages/outbound?count=500&offset=0&todate=#{@to_date}&fromdate=#{@from_date}" -X GET -H "Accept: application/json" -H "X-Postmark-Server-Token: #{ENV["POSTMARK_API_KEY"]}"`
@@ -88,7 +87,6 @@ Postmark has [Messages API](http://developer.postmarkapp.com/developer-api-messa
     ```
 
 On going! ...
-
 
 ## Testing the inbound webhook with curl (Sample)
   ```

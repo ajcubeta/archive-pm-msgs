@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.1.3'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier'
 gem 'puma', '~> 3.7'
 gem 'pg', '~> 0.18'
 gem 'turbolinks', '~> 5.0.0'
@@ -20,11 +22,10 @@ gem 'whenever'
 gem 'oink'
 # gem 'mongoid'
 gem 'bson_ext'
-gem 'uglifier'
-
 gem 'griddler'
 gem 'griddler-postmark'
 gem 'postmark-rails'
+gem 'rest-client'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
