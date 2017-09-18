@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'login'  => 'sessions#new', :as => 'login'
 
   # mount_griddler
-  match 'webhoook', to: 'posts#webhoook', via: [:get, :post]
+  match 'webhook', to: 'posts#webhook', via: [:get, :post]
 
   resources :sessions
   resources :users
