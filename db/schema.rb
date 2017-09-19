@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912082019) do
+ActiveRecord::Schema.define(version: 20170919084914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20170912082019) do
     t.text "first_name"
     t.text "last_name"
     t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "webhook_event_requests", force: :cascade do |t|
+    t.text "payload"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

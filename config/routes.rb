@@ -3,11 +3,18 @@ Rails.application.routes.draw do
   # root 'sessions#new'
   root 'welcome#index'
 
-  get 'logout' => 'sessions#destroy', :as => 'logout'
-  get 'login'  => 'sessions#new', :as => 'login'
+  # get 'logout' => 'sessions#destroy', :as => 'logout'
+  # get 'login'  => 'sessions#new', :as => 'login'
 
-  mount_griddler
-  match 'webhook', to: 'posts#webhook', via: [:get, :post]
+  resources :webhook_event_requests do
+    post 'webhook', on: :collection
+  end
+
+  # mount_griddler
+  match 'webhook', to: 'webhook_event_requests#webhook', via: [:get, :post]
+
+  # root 'webhook_event_requests#index'
+  # post 'webhook' => 'webhook_event_requests#webhook'
 
   resources :sessions
   resources :users

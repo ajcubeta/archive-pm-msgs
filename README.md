@@ -29,8 +29,13 @@ Postmark has [Messages API](http://developer.postmarkapp.com/developer-api-messa
 
 * Go to rails console
 ```
-  => @from_date = Date.today.beginning_of_month.strftime("%Y-%m-%d")
-  => @to_date = Date.today.end_of_month.strftime("%Y-%m-%d")
+  # Aug 2017
+  => @from_date = Date.today.last_month.beginning_of_month.strftime("%Y-%m-%d")
+  => @to_date = Date.today.last_month.end_of_month.strftime("%Y-%m-%d")
+
+  # Sept 2017
+  => @from_date = Date.beginning_of_month.strftime("%Y-%m-%d")
+  => @to_date = Date.end_of_month.strftime("%Y-%m-%d")
 ```
 
 * Get Outbound messages search
