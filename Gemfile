@@ -26,6 +26,7 @@ gem 'griddler'
 gem 'griddler-postmark'
 gem 'postmark-rails'
 gem 'rest-client'
+gem 'authentication'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

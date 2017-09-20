@@ -15,7 +15,7 @@
       <tr>
         <td><%= webhook_event_request.payload %></td>
         <td><%= link_to 'Show', webhook_event_request %></td>
-        <td><%= link_to 'Edit', edit_webhook_event_request_path(webhook_event_request) %></td>
+        <!-- <td><%#= link_to 'Edit', edit_webhook_event_request_path(webhook_event_request) %></td> -->
         <td><%= link_to 'Destroy', webhook_event_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Webhook event request', new_webhook_event_request_path %>
+<%#= link_to 'New Webhook event request', new_webhook_event_request_path %>

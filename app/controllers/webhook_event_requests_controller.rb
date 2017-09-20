@@ -1,4 +1,5 @@
 class WebhookEventRequestsController < ApplicationController
+  include Authentication
   before_action :set_webhook_event_request, only: [:show, :edit, :update, :destroy]
 
   protect_from_forgery except: :webhook
@@ -42,11 +43,16 @@ class WebhookEventRequestsController < ApplicationController
 
     respond_to do |format|
       if @webhook_event_request.save
-        format.html { redirect_to @webhook_event_request, notice: 'Webhook event request was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @webhook_event_request }
+        format.html { redirect_to @webhook_event_request,
+          notice: 'Webhook event request was successfully created.'
+        }
+
+        format.json { render action: 'show', status: :created,
+                             location: @webhook_event_request }
       else
         format.html { render action: 'new' }
-        format.json { render json: @webhook_event_request.errors, status: :unprocessable_entity }
+        format.json { render json: @webhook_event_request.errors,
+                             status: :unprocessable_entity }
       end
     end
   end
@@ -56,11 +62,15 @@ class WebhookEventRequestsController < ApplicationController
   def update
     respond_to do |format|
       if @webhook_event_request.update(webhook_event_request_params)
-        format.html { redirect_to @webhook_event_request, notice: 'Webhook event request was successfully updated.' }
+        format.html { redirect_to @webhook_event_request,
+          notice: 'Webhook event request was successfully updated.'
+        }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @webhook_event_request.errors, status: :unprocessable_entity }
+        format.json { render json: @webhook_event_request.errors,
+          status: :unprocessable_entity
+        }
       end
     end
   end
@@ -81,7 +91,6 @@ class WebhookEventRequestsController < ApplicationController
       @webhook_event_request = WebhookEventRequest.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def webhook_event_request_params
       params.require(:webhook_event_request).permit(:payload)
     end
